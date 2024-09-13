@@ -1,5 +1,5 @@
 # HP_6653A
-Python module for the HP 6653A power supply.
+Python module for the HP 6653A 35 V 15 A power supply.
 
 You must use my GPIB or GPIB_WIFI module to use this module.
 
