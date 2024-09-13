@@ -11,6 +11,9 @@ class HP_6653A(object):
 	class DisplayMode(Enum):
 		NORMAL = 0
 		TEXT   = 1
+
+	def __str__(self):
+		return "HP 6653A address: " + str(self.address)
 	
 	def preCommand(self):
 		if self.gpib.address != self.address or self.firstTime:
@@ -39,7 +42,11 @@ class HP_6653A(object):
 	
 	def setVoltage(self, volt):
 		self.preCommand()
-		self.gpib.write("VOLT {:.3f}".format(volt))
+		if volt >= 0.0 and volt <= 35.831:
+			self.gpib.write("VOLT {:.3f}".format(volt))
+			return True
+		else:
+			return False
 		
 	def getVoltage(self):
 		self.preCommand()
@@ -51,7 +58,11 @@ class HP_6653A(object):
 		
 	def setCurrent(self, amps):
 		self.preCommand()
-		self.gpib.write("CURR {:.3f}".format(amps))
+		if amps >= 0.0 and amps <= 15.356:
+			self.gpib.write("CURR {:.3f}".format(amps))
+			return True
+		else:
+			return False
 		
 	def getCurrent(self):
 		self.preCommand()
@@ -63,7 +74,11 @@ class HP_6653A(object):
 			
 	def setVoltageCurrent(self, volt, amps):
 		self.preCommand()
-		self.gpib.write("VOLT {:.3f};CURR {:.3f}".format(volt, amps))
+		if volt >= 0.0 and volt <= 35.831 and amps >= 0.0 and amps <= 15.356:
+			self.gpib.write("VOLT {:.3f};CURR {:.3f}".format(volt, amps))
+			return True
+		else:
+			return False
 	
 	def setDisplay(self, on):
 		self.preCommand()
