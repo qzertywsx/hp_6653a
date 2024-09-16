@@ -10,7 +10,7 @@ Return the *IDN? of the instrument
 ### reset()
 Reset the instrument to the default state
 
-### setOutput(on)
+### setOutputState(on)
 Set the output
 <table>
   <tr><td>on</td><td>Description</td></tr>
@@ -18,7 +18,7 @@ Set the output
   <tr><td>False</td><td>Disable the output</td></tr>
 </table>
 
-### getOutput()
+### getOutputState()
 Get the output state
 <table>
   <tr><td>Return</td><td>Description</td></tr>
@@ -41,7 +41,7 @@ Return the measured current or `False` in case of problem
 ### setVoltageCurrent(volt, amps)
 Set the voltage to `volt` and the current to `amps`
 
-### setDisplay(on)
+### setDisplayState(on)
 Switch the display on or off
 <table>
   <tr><td>on</td><td>Description</td></tr>
@@ -70,10 +70,10 @@ gpib = AR488_WIFI('192.168.178.36', timeout=5)
 psu = HP_6653A( gpib, 7)
 psu.setVoltage(5)
 psu.setCurrent(0.5)
-psu.setOutput(True)
+psu.setOutputState(True)
 print("Voltage:", psu.getVoltage(), "V")
 print("Current:", psu.getCurrent(), "A")
-psu.setOutput(False)
+psu.setOutputState(False)
 psu.local()
 ```
 ## Result of executing the above code (Not done yet):
