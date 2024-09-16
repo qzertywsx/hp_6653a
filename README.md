@@ -77,7 +77,7 @@ print("Current:", psu.getCurrent(), "A")
 psu.setOutputState(False)
 psu.local()
 ```
-## Result of executing the above code (Not done yet):
+## Result of executing the above code:
 ```
 HP 6653A address: 7
 Voltage: 4.99663 V
