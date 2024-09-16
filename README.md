@@ -58,6 +58,9 @@ Set a custom `text` on the display (Max 12 character)
 ### getDisplayText()
 Get the custom text currently on the display
 
+### getError()
+Get the last error
+
 ### local()
 Go to local mode (Reenable the front panel control)
 
