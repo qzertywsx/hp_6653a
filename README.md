@@ -81,5 +81,5 @@ psu.local()
 ```
 HP 6653A address: 7
 Voltage: 4.99663 V
-Current: -0.00391509 A
+Current: 0.308177 A
 ```
