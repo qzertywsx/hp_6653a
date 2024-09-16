@@ -67,7 +67,7 @@ from GPIB_WIFI import AR488_WIFI
 from HP_6653A import HP_6653A
 
 gpib = AR488_WIFI('192.168.178.36', timeout=5)
-psu = HP_6653A( gpib, 7)
+psu = HP_6653A(gpib, 7)
 print(psu)
 psu.setVoltage(5)
 psu.setCurrent(0.5)
