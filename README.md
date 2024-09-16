@@ -68,6 +68,7 @@ from HP_6653A import HP_6653A
 
 gpib = AR488_WIFI('192.168.178.36', timeout=5)
 psu = HP_6653A( gpib, 7)
+print(psu)
 psu.setVoltage(5)
 psu.setCurrent(0.5)
 psu.setOutputState(True)
@@ -78,5 +79,7 @@ psu.local()
 ```
 ## Result of executing the above code (Not done yet):
 ```
-GPIB address: 7, IP: 192.168.178.36
+HP 6653A address: 7
+Voltage: 4.99663 V
+Current: -0.00391509 A
 ```
