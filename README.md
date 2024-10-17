@@ -1,16 +1,16 @@
-# HP_6653A
+# hp_6653a
 Python module for the HP 6653A 35 V 15 A power supply.
 
 You must use my GPIB or GPIB_WIFI module to use this module.
 
 ## Supported command:
-### get_IDN()
+### get_idn()
 Return the *IDN? of the instrument
 
 ### reset()
 Reset the instrument to the default state
 
-### setOutputState(on)
+### set_output_state(on)
 Set the output
 <table>
   <tr><td>on</td><td>Description</td></tr>
@@ -18,7 +18,7 @@ Set the output
   <tr><td>False</td><td>Disable the output</td></tr>
 </table>
 
-### getOutputState()
+### get_output_state()
 Get the output state
 <table>
   <tr><td>Return</td><td>Description</td></tr>
@@ -26,22 +26,28 @@ Get the output state
   <tr><td>False</td><td>The output is disabled</td></tr>
 </table>
 
-### setVoltage(volt)
+### set_voltage(volt)
 Set the voltage to `volt`
 
-### getVoltage()
+### get_set_voltage()
+Return the set voltage or `False` in case of problem
+
+### get_voltage()
 Return the measured voltage or `False` in case of problem
 
-### setCurrent(amps)
+### set_current(amps)
 Set the current to `amps`
 
-### getCurrent()
+### get_set_current()
+Return the set current or `False` in case of problem
+
+### get_current()
 Return the measured current or `False` in case of problem
 
-### setVoltageCurrent(volt, amps)
+### set_voltage_current(volt, amps)
 Set the voltage to `volt` and the current to `amps`
 
-### setDisplayState(on)
+### set_display_state(on)
 Switch the display on or off
 <table>
   <tr><td>on</td><td>Description</td></tr>
@@ -49,16 +55,16 @@ Switch the display on or off
   <tr><td>False</td><td>Switch off the display</td></tr>
 </table>
 
-### setDisplayNormal()
+### set_display_normal()
 Set the display to normal mode (Show the measured value) 
 
-### setDisplayText(text)
+### set_display_text(text)
 Set a custom `text` on the display (Max 12 character)
 
-### getDisplayText()
+### get_display_text()
 Get the custom text currently on the display
 
-### getError()
+### get_error()
 Get the last error
 
 ### local()
@@ -66,18 +72,18 @@ Go to local mode (Reenable the front panel control)
 
 ## Usage:
 ```python
-from GPIB_WIFI import AR488_WIFI
-from HP_6653A import HP_6653A
+from gpib_all import AR488Wifi
+from hp_6653a import HP6653A
 
-gpib = AR488_WIFI('192.168.178.36', timeout=5)
-psu = HP_6653A(gpib, 7)
+gpib = AR488Wifi('192.168.178.36')
+psu = HP6653A(gpib, 7)
 print(psu)
-psu.setVoltage(5)
-psu.setCurrent(0.5)
-psu.setOutputState(True)
-print("Voltage:", psu.getVoltage(), "V")
-print("Current:", psu.getCurrent(), "A")
-psu.setOutputState(False)
+psu.set_voltage(5)
+psu.set_current(0.5)
+psu.set_output_state(True)
+print("Voltage:", psu.get_voltage(), "V")
+print("Current:", psu.get_current(), "A")
+psu.set_output_state(False)
 psu.local()
 ```
 ## Result of executing the above code:
